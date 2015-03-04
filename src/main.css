@@ -3,14 +3,16 @@
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  color: #333;
+  font: 1em/1.4 "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
   margin: 0;
 }
 
 .editor {
   border: 0;
+  color: currentColor;
   display: block;
-  font-size: 1em;
+  font: inherit;
   width: 100vw;
   height: 100vh;
   resize: none;
@@ -19,4 +21,16 @@ body {
 
 .editor:focus {
   outline: 0;
+}
+
+.footer {
+  padding: 1em;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+[data-invert-colors="true"] > * {
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
 }
