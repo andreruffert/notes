@@ -10,11 +10,17 @@
   editor.value = notes.join('\n');
 
   editor.addEventListener('input', function(e) {
+    var lines = this.value.split('\n');
     var lineNumber = this.value.substr(0, this.selectionStart).split('\n').length;
-    var lineContent = this.value.split('\n')[lineNumber - 1];
+    var lineContent = lines[lineNumber - 1];
 
-    // push content to array
-    notes[lineNumber - 1] = lineContent;
+    // update notes
+    if (lineContent === '' && lineNumber === lines.length) {
+      notes.splice(lineNumber - 1, 1);
+    }
+    else {
+      notes[lineNumber - 1] = lineContent;
+    }
 
     // update localStorage
     localStorage.setItem('notes', JSON.stringify(notes));
