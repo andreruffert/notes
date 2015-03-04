@@ -6,13 +6,14 @@
     }
   };
 
-  populateStorage('settings', defaults.settings);
-  populateStorage('notes', []);
-
-
+  var documentId = setDocumentId(location.hash.replace(/^#/, ''));
   var editor = document.getElementById('js-editor');
+
+  populateStorage('settings', defaults.settings);
+  populateStorage(documentId, []);
+
   var settings = JSON.parse(localStorage.getItem('settings'));
-  var notes = JSON.parse(localStorage.getItem('notes'));
+  var notes = JSON.parse(localStorage.getItem(documentId));
 
   // initialize settings
   setSettings(settings);
@@ -24,6 +25,15 @@
     updateNotes(this, notes);
   }, false);
 
+  /**
+   * setDocumentId
+   * @param {String} name
+   * @param {String} prefix
+   */
+  function setDocumentId(name, prefix) {
+    prefix = prefix || 'notes';
+    return (name === '') ? prefix : prefix + name.charAt(0).toUpperCase() + name.slice(1);
+  }
 
   /**
    * updateNotes
@@ -43,7 +53,7 @@
     }
 
     // update localStorage
-    localStorage.setItem('notes', JSON.stringify(notes));
+    localStorage.setItem(documentId, JSON.stringify(notes));
   }
 
   /**
