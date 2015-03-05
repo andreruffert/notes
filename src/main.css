@@ -28,10 +28,10 @@ body {
   height: 100vh;
   resize: none;
   padding: 1em;
-}
-
-.editor:focus {
   outline: 0;
+  white-space: pre;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .editor::-webkit-input-placeholder {
