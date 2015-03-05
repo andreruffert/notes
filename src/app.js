@@ -2,7 +2,10 @@
 
   var defaults = {
     settings: {
-      invertColors: false
+      theme: {
+        background: 'linear-gradient(90deg, #232526 10%, #414345 90%)',
+        color: '#fff'
+      }
     }
   };
 
@@ -16,7 +19,7 @@
   var notes = JSON.parse(localStorage.getItem(documentId));
 
   // initialize settings
-  setSettings(settings);
+  setSettings(settings.theme);
 
   // load notes into editor
   editor.value = notes.join('\n');
@@ -52,12 +55,9 @@
    * @param  {Object} settings
    */
   function setSettings(settings) {
-    var name, value;
     for (var key in settings) {
       if (settings.hasOwnProperty(key)) {
-        name = 'data-' + key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-        value = settings[key];
-        document.documentElement.setAttribute(name, value);
+        document.documentElement.style[key] = settings[key];
       }
     }
   }
