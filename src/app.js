@@ -1,6 +1,7 @@
 (function() {
 
   var defaults = {
+    documentPrefix: 'notes',
     settings: {
       theme: {
         background: 'linear-gradient(90deg, #232526 10%, #414345 90%)',
@@ -33,9 +34,8 @@
    * @param {String} name
    * @param {String} prefix
    */
-  function setDocumentId(name, prefix) {
-    prefix = prefix || 'notes';
-    return (name === '') ? prefix : prefix + name.charAt(0).toUpperCase() + name.slice(1);
+  function setDocumentId(name) {
+    return (name === '') ? defaults.documentPrefix : defaults.documentPrefix + name.charAt(0).toUpperCase() + name.slice(1);
   }
 
   function getLineNumber(editor) {
@@ -96,5 +96,29 @@
       return fn.lastReturnVal;
     };
   }
+
+  /**
+   * loadTheme
+   * @param  {JSON}   json
+   */
+  window.loadTheme = function(json) {
+    settings.theme = JSON.parse(json);
+    localStorage.setItem('settings', JSON.stringify(settings));
+    setSettings(settings.theme);
+  };
+
+  /**
+   * getDocumentNames
+   * @return {Array}  Names (`document.hash`) of all existing documents
+   */
+  window.getDocumentNames = function() {
+    var documentNames = [];
+    for (i = 0; i < localStorage.length; i++) {
+      if (localStorage.key(i) !== defaults.documentPrefix && localStorage.key(i).indexOf(defaults.documentPrefix) === 0) {
+        documentNames.push(localStorage.key(i).replace(defaults.documentPrefix, ''));
+      }
+    }
+    return documentNames;
+  };
 
 })();
