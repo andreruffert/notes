@@ -35,6 +35,10 @@
     return (name === '') ? prefix : prefix + name.charAt(0).toUpperCase() + name.slice(1);
   }
 
+  function getLineNumber(editor) {
+    return editor.value.substr(0, editor.selectionStart).split('\n').length;
+  }
+
   /**
    * updateNotes
    * @param  {Element} editor
@@ -42,7 +46,7 @@
    */
   function updateNotes(editor, notes) {
     var lines = editor.value.split('\n');
-    var lineNumber = editor.value.substr(0, editor.selectionStart).split('\n').length;
+    var lineNumber = getLineNumber(editor);
     var lineContent = lines[lineNumber - 1];
 
     if (lineContent === '' && lineNumber === lines.length) {
