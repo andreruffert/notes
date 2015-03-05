@@ -21,9 +21,9 @@
   // load notes into editor
   editor.value = notes.join('\n');
 
-  editor.addEventListener('input', function(e) {
-    updateNotes(this, notes);
-  }, false);
+  editor.addEventListener('input', debounce(function(e) {
+    updateNotes(editor);
+  }, 100), false);
 
   /**
    * setDocumentId
@@ -42,22 +42,9 @@
   /**
    * updateNotes
    * @param  {Element} editor
-   * @param  {Array}   notes
    */
-  function updateNotes(editor, notes) {
-    var lines = editor.value.split('\n');
-    var lineNumber = getLineNumber(editor);
-    var lineContent = lines[lineNumber - 1];
-
-    if (lineContent === '' && lineNumber === lines.length) {
-      notes.splice(lineNumber - 1, 1);
-    }
-    else {
-      notes[lineNumber - 1] = lineContent;
-    }
-
-    // update localStorage
-    localStorage.setItem(documentId, JSON.stringify(notes));
+  function updateNotes(editor) {
+    localStorage.setItem(documentId, JSON.stringify(editor.value.split('\n')));
   }
 
   /**
@@ -84,6 +71,30 @@
     if (!localStorage.getItem(key)) {
       localStorage.setItem(key, JSON.stringify(props));
     }
+  }
+
+  /**
+   * Returns a debounced function that will make sure the given
+   * function is not triggered too much.
+   *
+   * @param  {Function} fn Function to debounce.
+   * @param  {Number}   debounceDuration OPTIONAL. The amount of time in milliseconds for which we will debounce the function. (defaults to 100ms)
+   * @return {Function}
+   */
+  function debounce(fn, debounceDuration) {
+    debounceDuration = debounceDuration || 100;
+    return function() {
+      if (!fn.debouncing) {
+        var args = Array.prototype.slice.apply(arguments);
+        fn.lastReturnVal = fn.apply(window, args);
+        fn.debouncing = true;
+      }
+      clearTimeout(fn.debounceTimeout);
+      fn.debounceTimeout = setTimeout(function(){
+        fn.debouncing = false;
+      }, debounceDuration);
+      return fn.lastReturnVal;
+    };
   }
 
 })();
