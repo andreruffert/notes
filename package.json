@@ -27,7 +27,7 @@
   },
   "scripts": {
     "build": "npm run build:markup -s",
-    "build:markup": "jade src/index.jade --out dist --pretty && html-minifier --minify-js --minify-css --collapse-whitespace --remove-comments dist/index.html -o dist/index.html",
+    "build:markup": "jade src/index.jade --obj package.json --out dist --pretty && html-minifier --minify-js --minify-css --collapse-whitespace --remove-comments dist/index.html -o dist/index.html",
     "watch": "nodemon -q -w src/ --ext '.' --exec 'npm run build'",
     "serve": "http-server -p 9090 dist/",
     "start": "parallelshell \"npm run serve -s\" \"npm run watch -s\"",
