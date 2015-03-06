@@ -25,9 +25,9 @@ body {
   display: block;
   font: inherit;
   width: 100vw;
-  height: 100vh;
+  height: calc(100vh - 45px);
   resize: none;
-  padding: 1em 1em calc(1em + 45px) 1em;
+  padding: 1em;
   outline: 0;
   white-space: pre;
   overflow-x: hidden;
@@ -90,7 +90,7 @@ body {
 
 @media only screen and (min-width: 769px) {
   .editor {
-    padding: 1em 1em calc(1em + 30px) 1em;
+    height: calc(100vh - 30px);
   }
 
   .editor:invalid:focus ~ .footer {
