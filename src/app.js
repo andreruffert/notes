@@ -27,7 +27,7 @@
 
   editor.addEventListener('input', debounce(function(e) {
     updateNotes(editor);
-  }, 100), false);
+  }, 80), false);
 
   /**
    * setDocumentId
