@@ -121,4 +121,16 @@
     return documentNames;
   };
 
+  var banner = '             _ \n            | | \n _ __   ___ | |_ ___  ___ \n| \'_ \\ / _ \\| __/ _ \\/ __| \n| | | | (_) | ||  __/\\__ \\ \n|_| |_|\\___/ \\__\\___||___/\n\n\n';
+  console.log('%c' + banner, 'color: rgba(0, 0, 0, .8);');
+  console.group('Usage:');
+  console.log('Just type in some notes.');
+  console.log('Your notes get saved instantly after every key you press.');
+  console.groupEnd();
+
+  console.log('\n');
+
+  console.group('Hidden features:');
+  console.log('Wait for it.')
+  console.groupEnd();
 })();
