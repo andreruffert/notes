@@ -1,7 +1,8 @@
 {
   "name": "notes",
   "version": "0.0.1",
-  "description": "",
+  "description": "A simple app to make some notes right in the browser",
+  "title": "Make some notes!!",
   "repository": {
     "type": "git",
     "url": "https://github.com/andreruffert/notes.git"
