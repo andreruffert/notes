@@ -4,8 +4,8 @@
     documentPrefix: 'notes',
     settings: {
       theme: {
-        background: 'linear-gradient(90deg, #232526 10%, #414345 90%)',
-        color: '#fff'
+        background: 'linear-gradient(90deg, #614385 10%, #516395 90%)',
+        color: 'white'
       }
     }
   };
