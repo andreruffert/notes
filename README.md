@@ -1,4 +1,4 @@
 # notes
 
-> A simple editor to make some notes right in the browser.                               
+> A simple app to make some notes right in the browser.                               
 > Uses `localStorage` to store your notes.
