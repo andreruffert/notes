@@ -27,20 +27,19 @@ body {
   width: 100vw;
   height: 100vh;
   resize: none;
-  padding: 1em;
+  padding: 1em 1em calc(1em + 45px) 1em;
   outline: 0;
   white-space: pre;
-  overflow-y: auto;
   overflow-x: hidden;
 }
 
 .editor::-webkit-input-placeholder {
   color: currentColor;
-  opacity: .9;
+  opacity: 1;
 }
 
 .editor::-webkit-input-placeholder:after {
-  content: "            o \A             | \A           ,'~'. \A          /     \\ \A         |   ____|_ \A         |  '___,,_'     .----------------. \A         |  ||(o |o)|   ( MAKE SOME NOTES! ) \A         |   -------     ,----------------' \A         |  _____|     -' \A         \\  '####, \A          ------- \A        /________\\ \A      (  )        |) \A      '_ ' ,------|\\ \A     /_ /  |      |_\\ \A    /_ /|  |     o| _\\ \A   /_ / |  |      |\\ _\\____/|___ \A  (  (  |  |      | (_,_,_,____/ \A   \\ _\\ |   ------| \A    \\ _\\|_________| \A     \\ _\\ \\__\\\\__\\ \A   ||/__/ |__||__| \A          |__||__| \A          |__||__| \A          /__)/__) \A         /__//__/ \A       /__//__/. \A     .'    '.   '. \A    (_kOs____)____) \A   ";
+  content: "            o \A             | \A           ,'~'. \A          /     \\ \A         |   ____|_ \A         |  '___,,_'     .----------------. \A         |  ||(o |o)|   ( Make some notes! ) \A         |   -------     ,----------------' \A         |  _____|     -' \A         \\  '####, \A          ------- \A        /________\\ \A      (  )        |) \A      '_ ' ,------|\\ \A     /_ /  |      |_\\ \A    /_ /|  |     o| _\\ \A   /_ / |  |      |\\ _\\____/|___ \A  (  (  |  |      | (_,_,_,____/ \A   \\ _\\ |   ------| \A    \\ _\\|_________| \A     \\ _\\ \\__\\\\__\\ \A   ||/__/ |__||__| \A          |__||__| \A          |__||__| \A          /__)/__) \A         /__//__/ \A       /__//__/. \A     .'    '.   '. \A    (_kOs____)____) \A   ";
   display: inline-block;
   font-family: "Droid Sans Mono", "Lucida Console", "Andale Mono", "Courier New", "Courier", monospace;
   font-size: .7em;
@@ -48,18 +47,68 @@ body {
 }
 
 .footer {
-  padding: 1em;
-  position: absolute;
+  background: rgba(0, 0, 0, .3);
+  height: 45px;
+  line-height: 43px;
+  text-align: right;
+  font-size: .85em;
+  padding: 0 1em;
+  position: fixed;
   right: 0;
   bottom: 0;
+  left: 0;
 }
 
-.github-link {
+.footer:before {
+  background: currentColor;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  opacity: .3;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+.footer__icon {
   color: currentColor;
   display: inline-block;
+  opacity: .8;
 }
 
-.github-link__icon {
+.footer__icon svg {
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+}
+
+.footer__icon path {
   fill: currentColor;
+}
+
+@media only screen and (min-width: 769px) {
+  .editor {
+    padding: 1em 1em calc(1em + 30px) 1em;
+  }
+
+  .editor:invalid:focus ~ .footer {
+    opacity: .4;
+  }
+
+  .editor:invalid:focus ~ .footer:hover {
+    opacity: 1;
+  }
+
+  .footer {
+    height: 30px;
+    line-height: 28px;
+  }
+
+  .footer__icon svg {
+    width: 20px;
+    height: 20px;
+  }
 }
 
