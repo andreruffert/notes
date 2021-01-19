@@ -22,6 +22,11 @@
   // initialize settings
   setSettings(settings.theme);
 
+  // intro placeholder
+  if (notes.join('') === '') {
+    editor.placeholder = "            o \n             | \n           ,'~'. \n          /     \\ \n         |   ____|_ \n         |  '___,,_'     .----------------. \n         |  ||(o |o)|   ( MAKE SOME NOTES! ) \n         |   -------     ,----------------' \n         |  _____|     -' \n         \\  '####, \n          ------- \n        /________\\ \n      (  )        |) \n      '_ ' ,------|\\ \n     /_ /  |      |_\\ \n    /_ /|  |     o| _\\ \n   /_ / |  |      |\\ _\\____/|___ \n  (  (  |  |      | (_,_,_,____/ \n   \\ _\\ |   ------| \n    \\ _\\|_________| \n     \\ _\\ \\__\\\\__\\ \n   ||/__/ |__||__| \n          |__||__| \n          |__||__| \n          /__)/__) \n         /__//__/ \n       /__//__/. \n     .'    '.   '. \n    (________)____) \n   ";
+  }
+
   // load notes into editor
   editor.value = notes.join('\n');
 
@@ -131,6 +136,16 @@
   console.log('\n');
 
   console.group('Hidden features:');
-  console.log('Wait for it.')
+  console.group('List documents');
+  console.log('window.getDocumentNames()');
+  console.log(window.getDocumentNames());
+  console.groupEnd();
+  console.group('Create new documents');
+  console.log('You can create a new document by appending a document name to the url');
+  console.log('e.g: https://andreruffert.github.io/notes/#myDocumentName');
+  console.groupEnd();
+  console.group('Switch between documents');
+  console.log('You can switch to a document by appending the document name to the url');
+  console.log('e.g: https://andreruffert.github.io/notes/#myDocumentName');
   console.groupEnd();
 })();
