@@ -24,7 +24,7 @@
     "live-reload": "0.2.0",
     "nodemon": "2.0.7",
     "parallelshell": "1.0.4",
-    "uglify-js": "2.4.16"
+    "uglify-js": "2.6.0"
   },
   "scripts": {
     "build": "npm run build:markup -s",
