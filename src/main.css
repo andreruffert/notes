@@ -33,12 +33,12 @@ body {
   overflow-x: hidden;
 }
 
-.editor::-webkit-input-placeholder {
+.editor::placeholder {
   color: currentColor;
   opacity: 1;
 }
 
-.editor::-webkit-input-placeholder:after {
+.editor::placeholder:after {
   content: "            o \A             | \A           ,'~'. \A          /     \\ \A         |   ____|_ \A         |  '___,,_'     .----------------. \A         |  ||(o |o)|   ( MAKE SOME NOTES! ) \A         |   -------     ,----------------' \A         |  _____|     -' \A         \\  '####, \A          ------- \A        /________\\ \A      (  )        |) \A      '_ ' ,------|\\ \A     /_ /  |      |_\\ \A    /_ /|  |     o| _\\ \A   /_ / |  |      |\\ _\\____/|___ \A  (  (  |  |      | (_,_,_,____/ \A   \\ _\\ |   ------| \A    \\ _\\|_________| \A     \\ _\\ \\__\\\\__\\ \A   ||/__/ |__||__| \A          |__||__| \A          |__||__| \A          /__)/__) \A         /__//__/ \A       /__//__/. \A     .'    '.   '. \A    (________)____) \A   ";
   display: inline-block;
   font-family: "Droid Sans Mono", "Lucida Console", "Andale Mono", "Courier New", "Courier", monospace;
