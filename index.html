@@ -138,7 +138,7 @@
   console.group('Hidden features:');
   console.groupCollapsed('List documents');
   console.log('window.getDocumentNames();');
-  console.log(window.getDocumentNames());
+  console.log(window.getDocumentNames().map(name => `${location.origin}/#${name}`).join('\n'));
   console.groupEnd();
 
   console.groupCollapsed('Create new documents');
