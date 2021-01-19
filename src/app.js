@@ -136,16 +136,22 @@
   console.log('\n');
 
   console.group('Hidden features:');
-  console.group('List documents');
-  console.log('window.getDocumentNames()');
+  console.groupCollapsed('List documents');
+  console.log('window.getDocumentNames();');
   console.log(window.getDocumentNames());
   console.groupEnd();
-  console.group('Create new documents');
-  console.log('You can create a new document by appending a document name to the url');
+
+  console.groupCollapsed('Create new documents');
+  console.log('You can create a new document by appending a document name to the url.');
   console.log('e.g: https://andreruffert.github.io/notes/#myDocumentName');
   console.groupEnd();
-  console.group('Switch between documents');
-  console.log('You can switch to a document by appending the document name to the url');
+
+  console.groupCollapsed('Switch between documents');
+  console.log('You can switch to a document by appending the document name to the url.');
   console.log('e.g: https://andreruffert.github.io/notes/#myDocumentName');
+  console.groupEnd();
+
+  console.groupCollapsed('Load themes');
+  console.log(`window.loadTheme('{ "background": "linear-gradient(90deg, #614385 10%, #516395 90%)", "color": "white" }');`);
   console.groupEnd();
 })();
