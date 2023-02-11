@@ -22,7 +22,7 @@
     "http-server": "0.12.3",
     "jade": "1.9.2",
     "live-reload": "0.2.0",
-    "nodemon": "2.0.7",
+    "nodemon": "2.0.20",
     "parallelshell": "1.0.4",
     "uglify-js": "2.6.0"
   },
